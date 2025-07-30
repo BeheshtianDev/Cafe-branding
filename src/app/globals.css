@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --font-peyda: "Peyda", sans-serif;
+  --background: #e8d3b6;
   --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-peyda);
 }
-
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-mo: 300px;
+  --breakpoint-de: 1000px;
+}
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #F4EADC;
     --foreground: #ededed;
   }
 }
-
+*::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+* {
+  cursor: none !important;
+}
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  scrollbar-width: none; /* For Firefox */
+}
+.bg-caramel {
+  background-color: #e8d3b6;
+}
+.text-caramel {
+  color: #e8d3b6;
+}
+.animated-link {
+  position: relative;
+  color: black;
+  text-decoration: none;
+  opacity: 70%;
+  transition: all;
+  transition-duration: 200ms;
+}
+.animated-link:hover {
+  opacity: 100%;
+}
+.animated-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 27px;
+  width: 100%;
+  height: 2px;
+  background-color: black; /* رنگ دلخواهت */
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease, transform-origin 0s;
+}
+
+.animated-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
