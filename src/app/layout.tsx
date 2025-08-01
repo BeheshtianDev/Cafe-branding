@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import CustomCursor from "@/components/CustomCursor";
+import Preloader from "@/components/Preloader";
 
 const peyda = localFont({
   src: [
@@ -58,7 +59,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={peyda.variable} >
+      <body className={peyda.variable}>
+        <Preloader />
         <ScrollProgressBar />
         <Header />
         <CustomCursor />

@@ -13,7 +13,7 @@ const Header = () => {
         className=" de:flex mo:hidden justify-end  items-center flex-row-reverse gap-2"
       >
         <span className="animated-link peer">Tehran, Iran</span>
-        <div className="w-[180px] h-[35px]  text-sm rounded-lg overflow-hidden absolute backdrop-blur-md backdrop-brightness-90 top-14  font-normal peer-hover:opacity-100 opacity-0 flex  justify-center items-center transition-all duration-700">
+        <div className="w-[180px] h-[35px]  text-sm rounded-lg overflow-hidden absolute backdrop-blur-md backdrop-brightness-90 top-14  font-normal peer-hover:opacity-70 opacity-0 flex  justify-center items-center transition-all duration-700">
           Open in google maps
         </div>
         <span className="bg-black/70 peer-hover:bg-black/100 w-2 h-2 mb-[3px] rounded-full transition-all duration-200"></span>

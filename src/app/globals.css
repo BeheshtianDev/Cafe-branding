@@ -2,7 +2,7 @@
 
 :root {
   --font-peyda: "Peyda", sans-serif;
-  --background: #e8d3b6;
+  --background: #f4efe9;
   --foreground: #171717;
 }
 
@@ -16,7 +16,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #F4EADC;
+    --background: #f4efe9 ;
     --foreground: #ededed;
   }
 }
