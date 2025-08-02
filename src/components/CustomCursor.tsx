@@ -9,11 +9,19 @@ const SPRING_CONFIG = { stiffness: 0.15, damping: 0.25 };
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const pos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-  const mouse = useRef({ x: pos.current.x, y: pos.current.y });
+  const pos = useRef({ x: 0, y: 0 });
+  const mouse = useRef({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
-  // GSAP ticker for smooth spring movement
+  // Initialize position after window is available
+  useEffect(() => {
+    pos.current = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+    };
+    mouse.current = { ...pos.current };
+  }, []);
+
   useEffect(() => {
     const moveCursor = () => {
       pos.current.x +=
@@ -33,7 +41,6 @@ export default function CustomCursor() {
     return () => gsap.ticker.remove(moveCursor);
   }, []);
 
-  // Mouse move listener
   useEffect(() => {
     const move = (e: MouseEvent) => {
       mouse.current.x = e.clientX;
@@ -43,7 +50,6 @@ export default function CustomCursor() {
     return () => window.removeEventListener("mousemove", move);
   }, []);
 
-  // Hover state on clickable elements
   useEffect(() => {
     const hoverableSelectors =
       "a, button, input, textarea, select, [role='button'], .cursor-pointer";
@@ -67,22 +73,13 @@ export default function CustomCursor() {
     };
   }, []);
 
-  // Animate scale on hover
   useEffect(() => {
     if (!cursorRef.current) return;
-    if (isHovering) {
-      gsap.to(cursorRef.current, {
-        scale: EXPAND_SCALE,
-        duration: 0.3,
-        ease: "power3.out",
-      });
-    } else {
-      gsap.to(cursorRef.current, {
-        scale: 1,
-        duration: 0.3,
-        ease: "power3.out",
-      });
-    }
+    gsap.to(cursorRef.current, {
+      scale: isHovering ? EXPAND_SCALE : 1,
+      duration: 0.3,
+      ease: "power3.out",
+    });
   }, [isHovering]);
 
   return (
