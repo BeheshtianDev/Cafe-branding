@@ -43,7 +43,7 @@ export default function OpeningTimer() {
         const minutesLeft = 60 - currentMinute;
         setTimeLeft({ hours: hoursLeft, minutes: minutesLeft, open: true });
       } else {
-        let nextOpen = new Date();
+        const nextOpen = new Date();
         nextOpen.setHours(openHour, 0, 0, 0);
 
         if (now.getHours() >= closeHour) {
@@ -98,7 +98,7 @@ export default function OpeningTimer() {
         </>
       ) : (
         <>
-          <span>We're currently closed – opens in</span>
+          <span>We are currently closed – opens in</span>
           <span className="tabular-nums flex gap-px">
             {timeLeft.hours}
             <span

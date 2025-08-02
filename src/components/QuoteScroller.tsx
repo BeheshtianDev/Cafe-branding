@@ -64,7 +64,7 @@ const CoffeeSection = () => {
           className={`absolute text-[7vw] mb-[3vw] font-medium phrase-${i}`}
           style={{ left: "8vw", opacity: 0 }}
         >
-          "{text}"
+          &ldquo;{text}&rdquo;
         </span>
       ))}
     </div>
