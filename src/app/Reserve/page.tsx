@@ -88,7 +88,7 @@ const page = () => {
                   <span className="h-full w-[88%] border-black/30 group-hover:border-black/50 border-l rounded-l-xl backdrop-brightness-90"></span>
                 </div>
                 <div className="h-1/2 w-[30%] rounded-full border bg-[#f4efe9] z-10 border-black/30 text-black/70 flex justify-center items-center text-[1.5vw] font-semibold">
-                  1
+                  2
                 </div>
               </div>
               <div className="w-1/2 h-full flex justify-center items-center relative group">
@@ -99,7 +99,7 @@ const page = () => {
                   <span className="h-full w-[88%] border-black/30 group-hover:border-black/50 border-l rounded-l-xl backdrop-brightness-90"></span>
                 </div>
                 <div className="h-1/2 w-[30%] rounded-full border bg-[#f4efe9] z-10 border-black/30 text-black/70 flex justify-center items-center text-[1.5vw] font-semibold">
-                  1
+                  2
                 </div>
               </div>
             </div>
