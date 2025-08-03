@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 const CURSOR_COLOR = "#C09569";
 const CURSOR_OPACITY = 0.3;
 const EXPAND_SCALE = 1.4;
-const SPRING_CONFIG = { stiffness: 0.15, damping: 0.25 };
+const SPRING_CONFIG = { stiffness: 0.2, damping: 0.2 };
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
