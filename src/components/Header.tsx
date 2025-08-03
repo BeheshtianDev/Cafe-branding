@@ -35,7 +35,7 @@ const Header = () => {
           contact
         </Link>
       </div>
-      <Link href="/Reserve" className="animated-link de:flex mo:hidden items-center">
+      <Link href="Reserve" className="animated-link de:flex mo:hidden items-center">
         visit us
       </Link>
       <button className="cursor-pointer mo:flex de:hidden  ">menu</button>
