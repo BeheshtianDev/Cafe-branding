@@ -16,8 +16,11 @@ export default function Home() {
 
   useLayoutEffect(() => {
     if (!imgRef.current || !containerRef.current) return;
-
+    // جلوگیری از دوبار اجرا و خطای removeChild
+    ScrollSmoother.get()?.kill();
     const smoother = ScrollSmoother.create({
+      wrapper: "#smooth-wrapper",
+      content: "#smooth-content",
       smooth: 2,
       effects: true,
       smoothTouch: 0.1,
@@ -91,51 +94,53 @@ export default function Home() {
   }, []);
 
   return (
-    <div id="smooth-content" className=" w-full text-black">
-      <div
-        ref={containerRef}
-        className="h-screen w-full text-3xl flex justify-between px-20 items-center relative"
-      >
-        <span className="w-screen h-[100vw] border-[1px] border-black/30 rounded-full fixed left-[9.2vw]"></span>
-        <div className=" w-full flex flex-col z-30 justify-start  pb-10 items-start">
-          <span className="span-right font-semibold text-[10vw]">
-            every
-            <span className="text-[1.5vw] font-normal">Welcome to the</span>
-          </span>
-          <div className="flex w-full justify-start items-start">
-            <span className="span-out text-[1.5vw] font-normal  pl-[0.4vw]">
-              sacred ritual of
-              <span className="font-bold"> coffee</span>
+    <div id="smooth-wrapper">
+      <div id="smooth-content" className=" w-full text-black">
+        <div
+          ref={containerRef}
+          className="h-screen w-full text-3xl flex justify-between px-20 items-center relative"
+        >
+          <span className="w-screen h-[100vw] border-[1px] border-black/30 rounded-full fixed left-[9.2vw]"></span>
+          <div className=" w-full flex flex-col z-30 justify-start  pb-10 items-start">
+            <span className="span-right font-semibold text-[10vw]">
+              every
+              <span className="text-[1.5vw] font-normal">Welcome to the</span>
             </span>
-            <span className="span-left font-semibold text-[10vw] pl-[10vw]">
-              sip
-              <span className="text-nowrap font-normal ml-10 text-[4vw]">
-                IS A STORY.
+            <div className="flex w-full justify-start items-start">
+              <span className="span-out text-[1.5vw] font-normal  pl-[0.4vw]">
+                sacred ritual of
+                <span className="font-bold"> coffee</span>
               </span>
-            </span>
+              <span className="span-left font-semibold text-[10vw] pl-[10vw]">
+                sip
+                <span className="text-nowrap font-normal ml-10 text-[4vw]">
+                  IS A STORY.
+                </span>
+              </span>
+            </div>
+          </div>
+          <div className=" absolute right-[10vw] bottom-[15vh]">
+            <QuoteRotator />
+          </div>
+          <div className=" h-screen overflow-hidden ">
+            <img
+              ref={imgRef}
+              src="/Home-pic.jpg"
+              alt="coffee"
+              className="absolute z-20 shadow-xl w-full  h-full object-cover object-center "
+            />
+          </div>
+          <div className="absolute  bottom-5">
+            <OpeningTimer />
           </div>
         </div>
-        <div className=" absolute right-[10vw] bottom-[15vh]">
-          <QuoteRotator />
-        </div>
-        <div className=" h-screen overflow-hidden ">
-          <img
-            ref={imgRef}
-            src="/Home-pic.jpg"
-            alt="coffee"
-            className="absolute z-20 shadow-xl w-full  h-full object-cover object-center "
-          />
-        </div>
-        <div className="absolute  bottom-5">
-          <OpeningTimer />
-        </div>
+        <div className="h-screen w-full"></div>
+        <QuoteScroller />
+        <div className="h-screen w-full"></div>
+        <div className="h-screen w-full"></div>
+        <div className="h-screen w-full"></div>
+        <div className="h-screen w-full"></div>
       </div>
-      <div className="h-screen w-full"></div>
-      <QuoteScroller />
-      <div className="h-screen w-full"></div>
-      <div className="h-screen w-full"></div>
-      <div className="h-screen w-full"></div>
-      <div className="h-screen w-full"></div>
     </div>
   );
 }

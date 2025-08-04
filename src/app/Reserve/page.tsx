@@ -74,7 +74,7 @@ const page = () => {
             <span className="w-full h-px bg-black/30"></span>
           </span>
         </div>
-        <div className="w-full h-[60%] flex border-r border-black items-end">
+        <div className="w-full h-[60%] flex border-r border-black/30 items-end">
           <div className="w-1/4 h-full border border-black/30 text-black/70 flex justify-center items-center text-[1.5vw] font-semibold">
             Bar
           </div>
